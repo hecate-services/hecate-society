@@ -19,7 +19,7 @@
 %%     flickering between two different populations.
 %%   - THEY LAND ON ONE SQUARE, because a derived layout hashes what it is
 %%     given, so one of them is simply invisible.
-%%   - MIGRATION BECOMES AMBIGUOUS. "Send this agent to beam01" can deliver it to
+%%   - MIGRATION BECOMES AMBIGUOUS. "Send this mind to beam01" can deliver it to
 %%     the wrong island, lose it, or deliver it twice.
 %%   - AND IT IS NOT ONLY AN ACCIDENT. Anyone may type your island's name into
 %%     their own form and begin collecting your migrants.

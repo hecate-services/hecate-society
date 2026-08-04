@@ -33,7 +33,7 @@ ones, so that a reference is never ambiguous about which track it belongs to:
 | series | what it is about |
 |---|---|
 | `K` | what a belief is, and what holding one costs |
-| `L` | how a belief moves between agents |
+| `L` | how a belief moves between minds |
 | `M` | what a boundary does |
 
 ## The one finding carried forward whole
@@ -122,10 +122,10 @@ their OTP release in the image and in CI and test that the two agree.
 ## K. What a belief is, and what holding one costs
 
 *(No entries yet. CHARTER.md rules that beliefs are two levels, a `model` written
-only by observation and a `doctrine` written only by other agents, and that their
+only by observation and a `doctrine` written only by other minds, and that their
 disagreement is the subject. Nothing is built.)*
 
-## L. How a belief moves between agents
+## L. How a belief moves between minds
 
 *(No entries yet. Conformist, prestige and content bias are given as capacities
 with evolvable weight rather than as settings.)*

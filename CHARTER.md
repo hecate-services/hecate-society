@@ -26,17 +26,17 @@ That is the contribution. Not that agents hold beliefs, which exists everywhere.
 ## What culture is, and how you could tell it is here
 
 Culture is a **second inheritance system**. It moves sideways between living
-agents rather than down from parents, it moves within one life rather than at
+minds rather than down from parents, it moves within one life rather than at
 birth, and what it carries can outlive everyone who was carrying it.
 
 | | genetic, vertical, fixed at birth | cultural, horizontal, within a life |
 |---|---|---|
 | what travels | the transmission biases, the machinery that turns belief into action, the capacity to speak and to listen | the **model** and the **doctrine** |
-| written by | mutation and recombination | experience, and other agents |
+| written by | mutation and recombination | experience, and other minds |
 | dies with its holder | yes | not if it was taught to somebody |
 
 **The first instrument comes from that definition and not from a hypothesis.** A
-belief still held after every agent who held it at time `T` is dead has been
+belief still held after every mind that held it at time `T` is dead has been
 inherited by something other than birth. If nothing here ever does that, there is
 no second system, there is genetic evolution with the word culture written on it,
 and no later result means anything.
@@ -52,8 +52,8 @@ Ruled 2026-08-04.
 
 | | what it is | who may write to it |
 |---|---|---|
-| **model** | what this agent's own experience taught it about how the world behaves | observation, and nothing else |
-| **doctrine** | what this agent was told, held with a confidence | other agents, and nothing else |
+| **model** | what this mind's own experience taught it about how the world behaves | observation, and nothing else |
+| **doctrine** | what this mind was told, held with a confidence | other minds, and nothing else |
 
 Behaviour comes from both. **The gap between them is the phenomenon**: dissonance,
 conversion, radicalisation, and the conditions under which evidence defeats what
@@ -80,7 +80,7 @@ proposition space and its truth in the world; the act of speaking and the act of
 listening; islands, migration, the border seam, island identity; the mesh edge.
 
 **Emerges:** what is believed. How strongly. Which of the transmission biases an
-agent leans on, since conformity, prestige and content are given as capacities
+mind leans on, since conformity, prestige and content are given as capacities
 with evolvable weight rather than as settings. Whom to listen to. What an island
 admits, because **admission policy is expected to become political rather than
 technical**, and the reason vocabulary is open on purpose.
@@ -94,12 +94,12 @@ evolve*. So:
 | instrument | answers |
 |---|---|
 | **utterances per window** | was anything ever said. Zero invalidates the run |
-| **transmission chain depth** | did a belief outlive the agent it started in |
+| **transmission chain depth** | did a belief outlive the mind it started in |
 | **`F_ST` on beliefs, between islands** | is there between-group variation at all |
 | **the neutral expectation of `F_ST`** | how much of it random copying explains, at the *measured* migration rate |
 | **model-doctrine divergence** | how far what is taught has drifted from what is seen |
-| **behavioural attribution** | how much of what an agent does comes from doctrine rather than from its own model |
-| **cultural `Ne`** | how many models an agent effectively samples from in a life |
+| **behavioural attribution** | how much of what a mind does comes from doctrine rather than from its own model |
+| **cultural `Ne`** | how many models a mind effectively samples from in a life |
 
 ⚠ **`Ne` was guessed for twenty-two worlds and measured once, at 7.44 against a
 census of 87.95, which put the drift floor at 6.72% and made nearly every
@@ -126,12 +126,19 @@ cultural drift is a real named phenomenon. Measure it before believing anything.
 
 ## The ethical boundary, on day one
 
-This model contains no people. Its agents have no interests, nothing at stake, and
+This model contains no people. Its minds have no interests, nothing at stake, and
 no history. **Nothing observed here is evidence about any human population, any
 migration policy, or any real culture**, and the fact that it will produce
 suggestive pictures is exactly why this paragraph is in the founding document
 rather than added later.
 
+- **One member of a population is a `mind`.** Decided 2026-08-04, over `person`
+  and `human`, and the reason is this paragraph. These facts go out on a public
+  realm, so a spectator showing "12 minds turned away at beam03" is a statement
+  about a model, and the same picture saying "humans" is the artifact this
+  boundary exists to prevent. The word is not decoration: it is the boundary,
+  written where it cannot be forgotten. An island holds **a people**, and a
+  people is made of minds.
 - Every claim is stated as *in this model, under these rules, X*. Never as *X*.
 - **Propositions are about the physics of the model world.** No religion, no
   politics, no ethnicity, no nationality enters the proposition space. Labelling
@@ -188,7 +195,7 @@ one a renumbering would break. The break is marked, not hidden.
 - **A ruling on how a proposition is identified across islands**, since two
   islands that invent the same idea independently either share an identifier or do
   not, and `F_ST` means something different in each case.
-- **Trust.** A hostile node can inject agents and can inject doctrine. Island
+- **Trust.** A hostile node can inject minds and can inject doctrine. Island
   identity defeats accident and not impersonation: nothing signs it today. Naming
   the problem is in scope here, solving it is not.
 - **A ruling on the record.** A world spanning nodes is not a pure function of a

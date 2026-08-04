@@ -3,7 +3,7 @@
 **This exists so that adding a machine to the mesh adds a people, and the network
 between the machines is the border between their cultures.**
 
-An island is one node's piece of the world. It holds a population of agents who
+An island is one node's piece of the world. It holds a population of minds who
 believe things, teach each other, and check what they were taught against what
 they see. Islands meet by exchanging migrants over the mesh, and each island
 decides for itself who may land.
