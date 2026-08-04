@@ -12,6 +12,21 @@ Read [CHARTER.md](CHARTER.md) before the code. It says what is given and what
 must emerge, names the instruments before the mechanisms, and sets the ethical
 boundary.
 
+## How this repository is laid out
+
+| | |
+|---|---|
+| [CHARTER.md](CHARTER.md) | the front door. What this track is committed to, the rules, the instruments, the ethical boundary, the order of work |
+| [design/](design/) | one document per topic, each carrying its decision, the reasoning behind it, and its sources |
+| [claims/](claims/) | one directory per claim, holding its pre-registration and its results together. Empty until the builds are done |
+| [REGISTER.md](REGISTER.md) | findings and mistakes, numbered continuously from the predecessor. Every entry carries an ELI5 |
+
+**The split is by topic and never by kind.** A directory of commitments and a
+directory of reasoning would be two technical layers, neither of which is a
+subject, and this codebase forbids that shape in code for the same reason it is
+forbidden here: a decision separated from its reason gets undone by whoever reads
+only one of them.
+
 ## Status
 
 **Scaffold.** The service boots, joins the mesh, and answers `/health` on 8484.

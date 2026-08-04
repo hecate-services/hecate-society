@@ -35,6 +35,16 @@ usually a short paragraph.
 The two entries below were written before the rule and have been brought up to
 it, because a rule with no worked example is a rule nobody follows.
 
+## When this file splits
+
+**One file until it passes about 800 lines, then one file per series under
+`register/`, with this page kept as the index.**
+
+The predecessor's register reached 108KB in a single file, which is past the point
+where it can be read or processed in one piece, and it was never split because by
+then everything cross-referenced everything. **The threshold is written down now so
+the split happens on a number rather than on somebody's patience.**
+
 ---
 
 ## What carried, and what closed with the track
