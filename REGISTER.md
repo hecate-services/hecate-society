@@ -10,6 +10,33 @@ marked here, not hidden.
 
 ---
 
+## ⚠ EVERY ENTRY CARRIES AN ELI5 SECTION. NO EXCEPTIONS.
+
+CHARTER.md rule 10, from 2026-08-04. Every entry below ends with **ELI5**: the
+finding in plain language, for somebody who knows none of this.
+
+**Written in the same commit as the entry, by whoever wrote the entry.** The
+sibling practice on `beam-campus-net` keeps its plain-language layer in a separate
+repository, written later, and that project's own standing warning is that a
+published post still asserting a later-refuted finding is the worst failure it can
+have. **An explanation written elsewhere and afterwards is a translation, and
+translations drift.** One written in the same commit cannot.
+
+And it is a comprehension test before it is outreach. **If the finding cannot be
+explained without the vocabulary, it is not yet understood.** The most expensive
+entries in the predecessor's register are the ones where somebody believed they
+understood a thing they had only named.
+
+Rules for writing one: no jargon, and no term defined only elsewhere in this
+repository. Say what happened, what it cost, and what to do differently. If it
+needs a picture, use an everyday one. Length is whatever it takes, which is
+usually a short paragraph.
+
+The two entries below were written before the rule and have been brought up to
+it, because a rule with no worked example is a rule nobody follows.
+
+---
+
 ## What carried, and what closed with the track
 
 | series | what it is about | status |
@@ -88,6 +115,22 @@ evidence.
 floor. Read its output as "at least this", never as "this".** The same shape
 applies to any pipeline that short-circuits, which is most of them.
 
+**ELI5.** Imagine testing a long string of fairy lights with a tester that stops
+at the first dead bulb. You find one, and it is a bulb you happen to have a spare
+for, so you think you are five minutes from finished. But the tester never got
+past that bulb, so it never looked at the other twelve.
+
+We wanted to move to a newer version of the language we build in. The build
+stopped at the first library that would not compile. That library is one of ours
+and the fix was small, so it looked like we were half a day away from having it.
+Then we told the build to skip past that one and look further, and a second
+library failed too, and that one belongs to somebody else, so we cannot fix it and
+have to wait for them.
+
+Half a day turned into wait-for-someone-else, and the only thing that changed was
+looking past the first problem. **When a checker stops at the first fault, what it
+tells you is "at least this much is broken", never "this much".**
+
 ### `I.23` A guard that has never been seen to fail is not known to be a guard
 
 2026-08-04. Two boundary guards ship in this repository from the first commit:
@@ -105,6 +148,21 @@ It restores the file on every exit path including a signal.
 **The rule: a green suite means something only if you have watched it go red for
 the reason you think it is watching.** Cheap to check on the day the guard is
 written, and impossible to check convincingly six months later.
+
+**ELI5.** A smoke alarm you have never tested is not a smoke alarm. It is a
+plastic box on the ceiling that you believe in.
+
+We have two checks whose whole job is to catch one particular mistake, a mistake
+that once knocked over three of our four machines and kept them down. The trouble
+is that a check which reads a file can very easily be written so that it passes no
+matter what the file says, and nothing would ever tell you. It would sit there
+looking reassuring for years.
+
+So we wrote a small script that goes and breaks the thing on purpose, one way at a
+time, runs the checks, and makes sure they fail. Then it puts everything back. Both
+of them failed when they should have. **Now we know they are alarms rather than
+boxes**, and we knew it on the day we put them up, which is the only day it is
+cheap to find out.
 
 ---
 

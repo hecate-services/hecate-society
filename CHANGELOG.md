@@ -19,6 +19,30 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - CI on OTP 28 for lint and unit tests, and an OCI image pushed to ghcr.io on
   every push to `main`.
 
+### Changed
+
+- **CHARTER.md, first revision.** Both schools taken at two scales rather than one
+  chosen, with the fork named so build order cannot settle it silently. Max-Neef's
+  nine needs adopted whole, with a rule that no need may have code of its own so
+  that nine axes stay data rather than nine subsystems. **A culture is a set of
+  satisfiers**, replacing an earlier and weaker "a weighting over axes". Max-Neef's
+  violators and pseudo-satisfiers adopted as the measurable form of a culture being
+  bad for its carriers. Incommensurability made explicit, so nothing is ever summed
+  into a scalar welfare. Attention named as the scarce contested quantity, cultural
+  fitness defined as the count of learners, and welfare held separate from both.
+  Carrying capacity adopted as the whole material base, reusing `max_persons`.
+  **The person is a network** with unbounded hidden layers and beliefs as data
+  rather than weights: weights pass at birth, beliefs pass by speech. Transmission
+  biases moved from given to evolved, with the first claim running both arms. Life
+  defined as presence with a natural end. Violence placed between islands first,
+  and conquest shown to need no mechanism of its own. `Ne` promoted to its own
+  section as the binding constraint on ambition. Sources listed, and
+  self-determination theory recorded as considered and not adopted, with why.
+- **Rule 10: every register entry carries an ELI5 section**, written in the same
+  commit by whoever wrote the entry. `REGISTER.md` states the format and the two
+  existing entries were brought up to it, because a rule with no worked example is
+  a rule nobody follows.
+
 ### Decided
 
 - **OTP 28 rather than 29**, on measurement. The dependency tree fails to compile
