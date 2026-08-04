@@ -1,49 +1,71 @@
 #!/usr/bin/env bash
-# Do the two boundary guards actually go red?
+# Do the boundary guards actually go red?
 #
-# THIS EXISTS SO A GREEN SUITE MEANS SOMETHING. Both guards compare the Erlang
-# side of a boundary against the config side, and a guard that cannot fail is
-# decoration that reads as protection. The predecessor lost two of three fleet
-# nodes to a missing `evoq' block that every test on either side of it passed.
+# THIS EXISTS SO A GREEN SUITE MEANS SOMETHING. Every guard here compares one side
+# of a boundary against another, and a guard that cannot fail is decoration that
+# reads as protection. The predecessor lost two of three fleet nodes to a missing
+# `evoq' block that every test on either side of it passed, and three commits to a
+# runtime pin that two files agreed on and the developer did not.
 #
-# Breaks `config/sys.config.src' one way at a time, runs the suite, and asserts
-# it FAILED. Restores the file on every exit path including a signal.
+# Breaks each boundary one way at a time, runs the suite, and asserts it FAILED.
+# Restores every file on every exit path including a signal.
 #
 #   scripts/prove_the_guards_bite.sh
 
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONFIG="${ROOT}/config/sys.config.src"
-BACKUP="$(mktemp)"
+cd "${ROOT}"
 
-cp "${CONFIG}" "${BACKUP}"
-trap 'cp "${BACKUP}" "${CONFIG}"; rm -f "${BACKUP}"' EXIT INT TERM
+GUARDED=("config/sys.config.src" ".github/workflows/lint.yml" "Containerfile")
+BACKUP_DIR="$(mktemp -d)"
+
+for file in "${GUARDED[@]}"; do
+    cp "${file}" "${BACKUP_DIR}/$(basename "${file}")"
+done
+
+restore() {
+    for f in "${GUARDED[@]}"; do
+        cp "${BACKUP_DIR}/$(basename "${f}")" "${f}"
+    done
+}
+
+trap 'restore; rm -rf "${BACKUP_DIR}"' EXIT INT TERM
 
 FAILURES=0
+CHECKS=0
 
 expect_red() {
     local what="$1"
-    if (cd "${ROOT}" && rebar3 eunit >/dev/null 2>&1); then
+    CHECKS=$((CHECKS + 1))
+    if rebar3 eunit >/dev/null 2>&1; then
         echo "GREEN, and it should not be: ${what}"
         FAILURES=$((FAILURES + 1))
     else
         echo "red as required: ${what}"
     fi
-    cp "${BACKUP}" "${CONFIG}"
+    restore
 }
 
 # 1. The evoq block goes missing, which is the exact shape of the fleet crash.
-sed -i 's/{evoq, \[/{evoq_disabled, [/' "${CONFIG}"
+sed -i 's/{evoq, \[/{evoq_disabled, [/' config/sys.config.src
 expect_red "the evoq adapter block is absent"
 
 # 2. The store id in config drifts away from the one the service opens.
-sed -i 's/society_store/some_other_store/g' "${CONFIG}"
+sed -i 's/society_store/some_other_store/g' config/sys.config.src
 expect_red "the config names a different store than store_id/0"
+
+# 3. CI pins a different OTP release from the image.
+sed -i 's/image: erlang:28/image: erlang:27/' .github/workflows/lint.yml
+expect_red "CI and the image disagree about the OTP release"
+
+# 4. The image pins a release nobody is running.
+sed -i 's|FROM docker.io/erlang:28|FROM docker.io/erlang:27|' Containerfile
+expect_red "the image pins a release this VM is not running"
 
 echo
 if [[ "${FAILURES}" -eq 0 ]]; then
-    echo "both guards bite"
+    echo "all ${CHECKS} guarded boundaries bite"
 else
     echo "${FAILURES} guard(s) cannot fail"
     exit 1
