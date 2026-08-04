@@ -25,13 +25,22 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   on 29: `reckon_gater_repl.erl` and `khepri_import_export.erl` both use the
   old-style `catch` that 29 deprecates, on libraries built with warnings as
   errors. The first is ours, the second is upstream. See the `Containerfile`.
-- **One member of a population is a `mind`**, not an agent, a person or a human.
-  The predecessor's word was `creature` and it went with the biology. `mind`
-  names what the thing is for, since it holds a model and a doctrine and can be
-  taught, and it keeps the ethical boundary defensible on a public realm: "minds
-  turned away" is a statement about a model in a way that "humans turned away"
-  is not. Two references to Axelrod's agents stay, because they describe the
-  existing literature rather than anything built here.
+- **One member of a population is a `person`, plural `persons`**, not an agent, a
+  mind or a human. The predecessor's word was `creature` and it went with the
+  biology.
+
+  It was `mind` for about an hour, chosen to keep the public artifact safe, and
+  changed once it was settled that **persons will eventually kill each other
+  here**. Between-group lethal conflict is a load-bearing mechanism in cultural
+  group selection rather than an ugly extra, and a model that kills things should
+  use the noun where killing sounds like killing. The screenshot risk is real and
+  is accepted rather than dodged: it is answered in `CHARTER.md` and in how every
+  claim is worded, not by a softer noun.
+
+  An island holds **a people**, always with the article. A human being who runs a
+  node is an **operator** or an **owner**. Two references to Axelrod's agents
+  stay, because they describe the existing literature rather than anything built
+  here.
 - **The register keeps its numbering** from `hecate-biotope`. `G.10` and `I.21`
   and the rest are cross-referenced from everywhere, and renumbering would break
   the one asset worth carrying whole.

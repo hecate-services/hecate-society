@@ -9,17 +9,17 @@
 %%
 %% `island/0' is a LABEL. It comes from an environment variable, falls back to
 %% the hostname, and `set_island/1' changes it at runtime from this island's own
-%% web form. A person types it and it is meant to be typed.
+%% web form. An operator types it and it is meant to be typed.
 %%
 %% ⚠ SO TWO ISLANDS CAN CARRY THE SAME ONE, and in a world made of nodes run by
-%% different people they eventually will. Four things break when they do:
+%% different owners they eventually will. Four things break when they do:
 %%
 %%   - A SPECTATOR MERGES THEM. Facts filed under the name mean two islands
 %%     called `beam01' overwrite each other, and the map shows one island
 %%     flickering between two different populations.
 %%   - THEY LAND ON ONE SQUARE, because a derived layout hashes what it is
 %%     given, so one of them is simply invisible.
-%%   - MIGRATION BECOMES AMBIGUOUS. "Send this mind to beam01" can deliver it to
+%%   - MIGRATION BECOMES AMBIGUOUS. "Send this person to beam01" can deliver it to
 %%     the wrong island, lose it, or deliver it twice.
 %%   - AND IT IS NOT ONLY AN ACCIDENT. Anyone may type your island's name into
 %%     their own form and begin collecting your migrants.
@@ -33,7 +33,7 @@
 %% measurement of anything.
 %%
 %% So identity is `island_id/0', which nobody types, and the name is a nickname.
-%% Two islands may both be called `beam01' exactly as two people may both be
+%% Two islands may both be called `beam01' exactly as two human beings may both be
 %% called Raf.
 -module(society_identity).
 
@@ -109,7 +109,7 @@ mint(Path) ->
 %%
 %% SO IT DOES NOT PERSIST, and that is a property of the deployment rather than
 %% of this function: the environment wins at the next boot. Whatever offers this
-%% to a person must say so, and show the config line that would make it
+%% to an operator must say so, and show the config line that would make it
 %% permanent.
 -spec set_island(binary()) -> ok.
 set_island(Name) ->

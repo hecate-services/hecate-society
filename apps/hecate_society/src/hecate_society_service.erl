@@ -47,7 +47,7 @@
 %% re-read next month with a question that did not exist today.
 %%
 %% ⚠ AND HERE THAT RECORD IS LOAD-BEARING RATHER THAN A CONVENIENCE. CHARTER.md
-%% makes the first instrument "did a belief outlive every mind that held it",
+%% makes the first instrument "did a belief outlive every person that held it",
 %% which is a question about a span of time longer than any process that was
 %% alive for it. There is no version of that measurement without a durable log.
 -export([store_id/0, data_dir/0]).

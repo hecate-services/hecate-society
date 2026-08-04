@@ -33,7 +33,7 @@ with_name(Name, Body) ->
     end.
 
 %%==============================================================================
-%% The name, which a person types
+%% The name, which an operator types
 %%==============================================================================
 
 the_name_comes_from_the_environment_test() ->

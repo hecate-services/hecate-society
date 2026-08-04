@@ -10,8 +10,8 @@
 %% BEING REFUSED IS NOT THE SAME AS BEING BROKEN
 %% ==========================================================================
 %%
-%% A mind may arrive at the gates perfectly intact and still be turned away. That
-%% is a decision this island made, and it says nothing whatever about the mind.
+%% A person may arrive at the gates perfectly intact and still be turned away. That
+%% is a decision this island made, and it says nothing whatever about the person.
 %%
 %% The predecessor's first crossing did not have this module and made the error
 %% the hard way: because the sender let go irrevocably, a refused arrival had
@@ -21,12 +21,12 @@
 %%
 %% So the two questions are asked separately, and by different code:
 %%
-%%   the codec         IS THIS A MIND AT ALL? Widths, codes, numbers. Fixed,
+%%   the codec         IS THIS A PERSON AT ALL? Widths, codes, numbers. Fixed,
 %%                     technical, not negotiable, and a failure here is nobody:
 %%                     there is nothing to hand back.
 %%
-%%   `consider/2'      WILL WE HAVE IT? A judgement, about a mind that is fine.
-%%                     A refusal here hands the mind back, intact.
+%%   `consider/2'      WILL WE HAVE IT? A judgement, about a person that is fine.
+%%                     A refusal here hands the person back, intact.
 %%
 %% ⚠ THEY ANSWER IN DIFFERENT SHAPES ON PURPOSE, `{error, Why}' against
 %% `{turn_away, Why}', so that no caller can collapse the two by accident.
@@ -36,25 +36,41 @@
 %% ==========================================================================
 %%
 %% ⚠ THE REASON VOCABULARY IS OPEN ON PURPOSE. What an island refuses today is
-%% "we are full" and "we are closed". What it may refuse tomorrow is a mind that
+%% "we are full" and "we are closed". What it may refuse tomorrow is a person who
 %% believes the wrong thing, one whose island never reciprocates, one carrying
 %% nothing worth having, or whatever else emerges from islands that answer to
-%% different people.
+%% different owners.
 %%
 %% Nothing downstream may enumerate the reasons. A reason is a word this island
 %% chose, it travels on the fact that reports the refusal, and a reader shows it
 %% rather than interpreting it. The day admission policy is something an island
-%% EVOLVES rather than something a person configures, this function is the only
+%% EVOLVES rather than something an operator configures, this function is the only
 %% thing that has to change.
 %%
 %% ⚠⚠ AND CHARTER.md'S ETHICAL BOUNDARY BINDS THIS MODULE HARDEST. It is the one
 %% place in the system whose output most invites being read as a statement about
 %% human borders, and it is not one. Nothing here is evidence about any migration
 %% policy. The rules below exist because a formal model of cultural group
-%% selection requires a group boundary, and for no other reason. The entity is
-%% called a MIND rather than a person or a human for the same reason, decided
-%% 2026-08-04: these facts go out on a public realm, and "minds refused" cannot be
-%% screenshotted into a claim that "persons refused" invites.
+%% selection requires a group boundary, and for no other reason.
+%%
+%% ⚠⚠⚠ THE ENTITY IS CALLED A PERSON, AND THAT WORD WAS ARGUED OVER TWICE ON THE
+%% DAY THIS REPOSITORY OPENED. It was `mind' for about an hour, chosen precisely
+%% because "persons refused" is easier to screenshot into a claim about human
+%% borders than "minds refused" is.
+%%
+%% It was changed back once it was settled that persons will eventually kill each
+%% other here, because between-group lethal conflict is a load-bearing mechanism
+%% in cultural group selection rather than an ugly extra. **A model that kills
+%% things should use the noun where killing sounds like killing.** "Twelve minds
+%% were destroyed" is the sentence you write when you would rather not say what
+%% happened, and a project whose whole discipline is stating the negative in
+%% advance has no business doing that in its own vocabulary.
+%%
+%% So the screenshot risk is accepted rather than dodged, and it is answered where
+%% it should be: in CHARTER.md, and in every claim being stated as "in this model,
+%% under these rules, X". If a picture of what this model does is ever
+%% embarrassing, that is information worth having, and a euphemism would hide the
+%% one signal worth keeping.
 -module(border).
 
 -export([consider/2, reasons_so_far/0]).
@@ -62,19 +78,19 @@
 -type verdict() :: admit | {turn_away, atom()}.
 -export_type([verdict/0]).
 
-%% @doc Whether this island will take this mind.
+%% @doc Whether this island will take this person.
 %%
-%% Takes the arriving mind and the island's own state, and answers with a word
+%% Takes the arriving person and the island's own state, and answers with a word
 %% rather than a boolean, because "no" without a reason is the fact that tells a
 %% sender nothing and leaves an operator guessing.
 %%
-%% ⚠ THE MIND IS THE FIRST ARGUMENT AND EVERY RULE SO FAR IGNORES IT. That is
+%% ⚠ THE PERSON IS THE FIRST ARGUMENT AND EVERY RULE SO FAR IGNORES IT. That is
 %% worth noticing rather than tidying away: it means admission is currently a
 %% property of the island alone, which is the least interesting kind of border
-%% there is. The moment a rule reads the mind, this system has a politics.
+%% there is. The moment a rule reads the person, this system has a politics.
 -spec consider(map(), map()) -> verdict().
-consider(Mind, Island) ->
-    weighed([fun closed/2, fun crowded/2], Mind, Island).
+consider(Person, Island) ->
+    weighed([fun closed/2, fun crowded/2], Person, Island).
 
 weighed([], _M, _I) -> admit;
 weighed([Rule | Rest], M, I) -> ruled(Rule(M, I), Rest, M, I).
@@ -89,14 +105,14 @@ ruled({turn_away, _Why} = No, _Rest, _M, _I) -> No.
 %% AN ISLAND MAY SIMPLY DECLINE, and this is the state the predecessor modelled
 %% from its first fact and never once acted on: `accepts_migrants' was on the
 %% wire for twenty-four worlds and was always false.
-closed(_Mind, #{border := closed}) -> {turn_away, closed};
-closed(_Mind, _Island) -> admit.
+closed(_Person, #{border := closed}) -> {turn_away, closed};
+closed(_Person, _Island) -> admit.
 
 %% AND A FULL ISLAND CANNOT TAKE ANOTHER, which is less a policy than a fact, but
-%% it is still the refusal of an intact mind rather than a judgement about one.
-crowded(_Mind, #{minds := Held, max_minds := Max}) when Held >= Max ->
+%% it is still the refusal of an intact person rather than a judgement about one.
+crowded(_Person, #{persons := Held, max_persons := Max}) when Held >= Max ->
     {turn_away, full};
-crowded(_Mind, _Island) ->
+crowded(_Person, _Island) ->
     admit.
 
 %% @doc Every reason this island can currently give, for a page that wants to say

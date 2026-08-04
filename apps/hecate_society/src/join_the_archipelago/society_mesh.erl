@@ -111,7 +111,7 @@ send(Topic, Fact, {ok, Pool}) ->
 %% value the next line discards.
 %%
 %% ⚠ AND THAT MATTERS MORE HERE THAN IT DID THERE. CHARTER.md's contribution is
-%% that the islands are real machines belonging to different people. A substrate
+%% that the islands are real machines belonging to different owners. A substrate
 %% that quietly requires fleet membership to speak would make every island ours,
 %% and the between-group variation being measured would be between groups with
 %% one owner.
