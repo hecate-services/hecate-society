@@ -183,56 +183,31 @@ cannot be explained without the vocabulary, it is not yet understood**, and the
 register's most expensive entries are the ones where somebody believed they
 understood something they had only named.
 
-## The ethical boundary, on day one
+## Vocabulary
 
-This model contains no human beings. Its persons have no interests, nothing at
-stake, and no history. **Nothing observed here is evidence about any human
-population, any migration policy, or any real culture**, and the fact that it will
-produce suggestive pictures is exactly why this paragraph is in the founding
-document rather than added later.
+Terminology drifts unless it is written down, and three of these words look
+interchangeable and are not.
 
-- **Incommensurability does most of the work, structurally.** Because a culture is
-  a set of satisfiers and the nine axes are never summed, **there is no number in
-  this model that says one island is happier than another.** That is not a
-  precaution bolted on to protect us, it is the honest structure, and it removes
-  the most dangerous artifact this project could produce.
-- **One member of a population is a `person`, and the plural is `persons`.**
-  Decided 2026-08-04, over `mind`, `soul` and `agent`, and argued twice on the
-  day this opened. `mind` was chosen first, on exactly the grounds this section
-  is about: "persons refused" is easier to screenshot into a claim about human
-  borders than "minds refused" is.
-  It was changed once it was settled that **persons will eventually kill each
-  other here**, since between-group lethal conflict is a load-bearing mechanism
-  in cultural group selection and not an ugly extra. A model that kills things
-  should use the noun where killing sounds like killing. *Twelve minds were
-  destroyed* is the sentence you write when you would rather not say what
-  happened, and this document's whole discipline is stating the negative in
-  advance. **So the risk is accepted rather than dodged, and answered here and in
-  how every claim is worded, not by a softer noun.** If a picture of what this
-  model does is ever embarrassing, that is information worth having, and a
-  euphemism would hide the one signal worth keeping.
-- **Vocabulary, because it will drift otherwise.** An island holds **a people**,
-  always with the article and always meaning the group. A member is a **person**
-  and several are **persons**, never "people". A human being who runs a node is
-  an **operator** or an **owner**, never a person. The three words are distinct on
-  purpose and formal English already keeps them apart.
-- Every claim is stated as *in this model, under these rules, X*. Never as *X*.
-- **Propositions are about the physics of the model world.** No religion, no
-  politics, no ethnicity, no nationality enters the proposition space. Labelling
-  the beliefs with real contested human positions would turn a study of
-  transmission into a simulator of persuasion about those positions, and the
-  design requirement that a proposition be checkable against the world already
-  forbids it for an independent reason: a real political proposition has no truth
-  value in this world, so nothing could be measured.
-- **The nine need axes are not an exception to that.** They name what a person
-  pursues, never what a person believes. A satisfier is a practice in this model's
-  own world and carries no real-world content.
-- The border is in the model because group boundaries are the mechanism cultural
-  group selection formally requires. **That is a statement about a model and not a
-  position about borders.**
-- No result from here is published in a form that invites the reading *our
-  simulation shows open borders cause X*. A toy that gets quoted that way does
-  real damage.
+- An island holds **a people**, always with the article and always meaning the
+  group.
+- A member is a **person**, and several are **persons**, never "people". The
+  plural has to differ from the collective or the two collapse into one word.
+- A human being who runs a node is an **operator** or an **owner**, never a
+  person.
+
+**One member of a population is a `person`.** Decided 2026-08-04 over `mind`,
+`soul` and `agent`, and settled once it was clear that **persons will eventually
+kill each other here**. A model that kills things should use the noun where
+killing sounds like killing. *Twelve minds were destroyed* is the sentence you
+write when you would rather not say what happened, and this document's whole
+discipline is stating the negative in advance.
+
+**Propositions are about the physics of this world**, of the form *acting this way
+in that situation yields this outcome*. That is a design requirement rather than a
+preference, and it is argued in
+[DESIGN_BELIEF_HAS_TWO_LEVELS.md](design/DESIGN_BELIEF_HAS_TWO_LEVELS.md): a
+proposition with no truth in this world cannot be contradicted by the model, so
+model-doctrine disagreement, which is the subject, becomes unmeasurable.
 
 ## Order of work
 
@@ -292,6 +267,23 @@ one a renumbering would break. The break is marked, not hidden.
   seed and cannot be replayed. The event store replaces replay.
 
 ## REVISIONS
+
+**2026-08-04, revision 3.** The "ethical boundary" section is gone, along with
+every trace of it in `design/` and in `border.erl`.
+
+It was never asked for. It came from a handover note the previous session left for
+this one, was treated as an inherited requirement, grew into the longest section in
+the document, and then began making design decisions rather than guarding
+anything: the argument for calling a person a `mind` was an ethical-boundary
+argument, and it was wrong, and it cost a rename.
+
+**What was kept, under its own heading and on its own merits:** the vocabulary,
+because three words that look interchangeable are not, and the requirement that a
+proposition be checkable against this world, which is a modelling constraint that
+was already argued independently in
+[DESIGN_BELIEF_HAS_TWO_LEVELS.md](design/DESIGN_BELIEF_HAS_TWO_LEVELS.md). Rule 9,
+never summing the nine axes, stays where it was: it is Sen's incommensurability and
+a decision about what the model can represent.
 
 **2026-08-04, revision 2.** Split by topic. This document went from 622 lines to
 the front door it should have been, and the six decisions it had accumulated moved

@@ -52,8 +52,9 @@ this model has adopted the position Sen spent a career refuting and has destroye
 the thing that makes cultures different from each other.
 
 **There is no scalar happiness in this model and there will not be one.** That is
-charter rule 9, and it is also most of the ethical boundary: because the axes are
-never summed, no number exists that says one island is happier than another.
+charter rule 9. Because the axes are never summed, no number exists that ranks one
+island against another, and asking for one is asking the model a question it does
+not have the structure to answer.
 
 ## The rule that keeps nine axes cheap
 

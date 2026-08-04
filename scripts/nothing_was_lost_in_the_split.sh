@@ -90,13 +90,21 @@ must_survive "Imposition is what conformity and prestige look like"
 must_survive "A raid is migration that does not ask"
 must_survive "lifespan turned out"
 
-# The rules and the boundary
+# The rules
+#
+# ⚠ TWO PHRASES WERE REMOVED FROM THIS LIST ON 2026-08-04, DELIBERATELY, and this
+# note exists so nobody restores them from the git history thinking they were an
+# accident. The charter had an "ethical boundary" section that nobody asked for:
+# it came from a handover note the previous session left for this one, it grew to
+# the longest section in the document, and it started making design decisions
+# rather than guarding them. Raf cut it. The parts that carried research
+# weight, the vocabulary and the requirement that a proposition be checkable
+# against this world, moved to headings where they stand on their own merits and
+# are still checked below.
 must_survive "declares itself invalid"
 must_survive "A guard compares two sides of a boundary"
 must_survive "Every register entry carries an ELI5"
-must_survive "no number in"
 must_survive "an operator"
-must_survive "our simulation shows open borders cause"
 
 # Ne
 must_survive "7.44"

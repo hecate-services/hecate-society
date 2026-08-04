@@ -4,7 +4,7 @@
 it, and the sources it rests on.**
 
 `CHARTER.md` in the root is the front door: the end goal, the contribution, the
-rules, the instruments, the ethical boundary and the order of work. It states what
+rules, the instruments, the vocabulary and the order of work. It states what
 this track is committed to. **These documents say why**, and they are where a
 commitment gets relitigated if new information arrives.
 

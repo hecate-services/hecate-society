@@ -11,8 +11,7 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 - **CHARTER.md**, opening the track. The end goal in one line, the two-level
   belief store ruled on, seven instruments named before any mechanism, the order
-  of work classified into BUILD and CLAIM, and the ethical boundary set on day
-  one rather than added after the first suggestive picture.
+  of work classified into BUILD and CLAIM.
 - The service scaffold: boots on `hecate_om`, joins the mesh, answers `/health`
   on 8484, opens a reckon-db store for the notebook. Holds no island, publishes
   nothing, announces no capability.
@@ -57,9 +56,7 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   changed once it was settled that **persons will eventually kill each other
   here**. Between-group lethal conflict is a load-bearing mechanism in cultural
   group selection rather than an ugly extra, and a model that kills things should
-  use the noun where killing sounds like killing. The screenshot risk is real and
-  is accepted rather than dodged: it is answered in `CHARTER.md` and in how every
-  claim is worded, not by a softer noun.
+  use the noun where killing sounds like killing.
 
   An island holds **a people**, always with the article. A human being who runs a
   node is an **operator** or an **owner**. Two references to Axelrod's agents

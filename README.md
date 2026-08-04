@@ -9,14 +9,13 @@ they see. Islands meet by exchanging migrants over the mesh, and each island
 decides for itself who may land.
 
 Read [CHARTER.md](CHARTER.md) before the code. It says what is given and what
-must emerge, names the instruments before the mechanisms, and sets the ethical
-boundary.
+must emerge, and names the instruments before the mechanisms.
 
 ## How this repository is laid out
 
 | | |
 |---|---|
-| [CHARTER.md](CHARTER.md) | the front door. What this track is committed to, the rules, the instruments, the ethical boundary, the order of work |
+| [CHARTER.md](CHARTER.md) | the front door. What this track is committed to, the rules, the instruments, the vocabulary, the order of work |
 | [design/](design/) | one document per topic, each carrying its decision, the reasoning behind it, and its sources |
 | [claims/](claims/) | one directory per claim, holding its pre-registration and its results together. Empty until the builds are done |
 | [REGISTER.md](REGISTER.md) | findings and mistakes, numbered continuously from the predecessor. Every entry carries an ELI5 |

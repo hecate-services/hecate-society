@@ -47,30 +47,23 @@
 %% EVOLVES rather than something an operator configures, this function is the only
 %% thing that has to change.
 %%
-%% ⚠⚠ AND CHARTER.md'S ETHICAL BOUNDARY BINDS THIS MODULE HARDEST. It is the one
-%% place in the system whose output most invites being read as a statement about
-%% human borders, and it is not one. Nothing here is evidence about any migration
-%% policy. The rules below exist because a formal model of cultural group
-%% selection requires a group boundary, and for no other reason.
+%% ⚠⚠ THE RULES BELOW EXIST BECAUSE A FORMAL MODEL OF CULTURAL GROUP SELECTION
+%% REQUIRES A GROUP BOUNDARY, and for no other reason. Boyd and Richerson's result
+%% is that conformist and prestige bias PLUS migration produce stable
+%% between-group variation, and that needs groups whose edges survive contact.
+%% This function is that edge.
 %%
 %% ⚠⚠⚠ THE ENTITY IS CALLED A PERSON, AND THAT WORD WAS ARGUED OVER TWICE ON THE
-%% DAY THIS REPOSITORY OPENED. It was `mind' for about an hour, chosen precisely
-%% because "persons refused" is easier to screenshot into a claim about human
-%% borders than "minds refused" is.
+%% DAY THIS REPOSITORY OPENED. It was `mind' for about an hour, and was changed
+%% once it was settled that persons will eventually kill each other here, because
+%% between-group lethal conflict is a load-bearing mechanism in cultural group
+%% selection rather than an ugly extra.
 %%
-%% It was changed back once it was settled that persons will eventually kill each
-%% other here, because between-group lethal conflict is a load-bearing mechanism
-%% in cultural group selection rather than an ugly extra. **A model that kills
-%% things should use the noun where killing sounds like killing.** "Twelve minds
-%% were destroyed" is the sentence you write when you would rather not say what
-%% happened, and a project whose whole discipline is stating the negative in
-%% advance has no business doing that in its own vocabulary.
-%%
-%% So the screenshot risk is accepted rather than dodged, and it is answered where
-%% it should be: in CHARTER.md, and in every claim being stated as "in this model,
-%% under these rules, X". If a picture of what this model does is ever
-%% embarrassing, that is information worth having, and a euphemism would hide the
-%% one signal worth keeping.
+%% **A model that kills things should use the noun where killing sounds like
+%% killing.** "Twelve minds were destroyed" is the sentence you write when you
+%% would rather not say what happened, and a project whose whole discipline is
+%% stating the negative in advance has no business doing that in its own
+%% vocabulary.
 -module(border).
 
 -export([consider/2, reasons_so_far/0]).

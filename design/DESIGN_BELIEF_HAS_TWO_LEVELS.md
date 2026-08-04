@@ -60,10 +60,10 @@ world either behaves that way or does not.
 no truth in the world then the model cannot contradict the doctrine, and the only
 thing worth measuring here is unmeasurable.
 
-It also, independently, forbids religion, politics, ethnicity and nationality from
-the proposition space, which `CHARTER.md`'s ethical boundary requires for a
-different reason. Two arguments arriving at the same constraint from opposite
-directions is the strongest kind of constraint there is.
+It also settles what a proposition may be ABOUT. A statement whose truth is not
+decided by this world's own physics has no truth here at all, so nothing can
+contradict it, so it can never generate the disagreement this design exists to
+measure. That is a modelling constraint and it needs no other justification.
 
 ## The pipeline this implies, which the literature has already worked out
 
