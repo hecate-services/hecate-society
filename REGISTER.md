@@ -174,6 +174,74 @@ of them failed when they should have. **Now we know they are alarms rather than
 boxes**, and we knew it on the day we put them up, which is the only day it is
 cheap to find out.
 
+### `I.24` An invariant that holds only in expectation is not an invariant
+
+2026-08-04. The neutral-copying model has no innovation at all, so a label that is
+lost is lost for ever. A test therefore asserted that **diversity only ever
+falls**, and it failed on the first run, and the first suspicion was that the
+model was broken.
+
+The test was wrong. What can never rise is the **number of distinct labels**.
+Diversity is `1 - sum(p^2)`, which measures how EVEN the frequencies are, and
+evenness fluctuates in both directions in a finite population. Sixty people
+holding 59 and 1 have less diversity than the same sixty holding 58 and 2, so a
+rare label drifting upward raises diversity while nothing has been invented and
+nothing has been recovered.
+
+**Drift lowers diversity in expectation, not in realisation.** The test now
+asserts the thing that is actually invariant, and a separate one asserts the
+long-run statement that the estimator really rests on.
+
+**The rule: before asserting a quantity is monotonic, ask whether it is monotonic
+in every run or only on average.** The second kind produces a red test that looks
+exactly like a broken model, and the cost is paid in doubting correct code.
+
+**ELI5.** If you have a jar of red and blue marbles and you keep replacing marbles
+with copies of other marbles in the jar, eventually the jar ends up all one
+colour. That is certain. What is not certain is that it gets closer to one colour
+every single time you look. If there is one blue marble left and it happens to get
+copied, there are briefly two, and the jar is more mixed than it was a moment ago.
+It is still heading for all-one-colour and it did not go backwards in any real
+sense, it just wobbled. We wrote a test saying "the mixture must go down every
+time we look", and the jar was behaving perfectly.
+
+### `I.25` A fit whose window depends on where the data happens to hit zero is measuring the window
+
+2026-08-04, found immediately after the first run of the floor measurement.
+
+The effective size is read off how fast diversity decays, by fitting a straight
+line through its logarithm. Points where diversity is exactly zero cannot be
+logged and were dropped. Everything else was kept.
+
+**The symptom: a census of 400 reported an effective size of 243 while a census of
+100 reported 101.** Nothing about the model differed between them.
+
+What differed was the tail. The small run fixed on one label early, so its late
+samples were exactly zero and were already excluded by the filter. The large run's
+tail was small but non-zero, so dozens of points where a couple of lineages were
+scrapping over the last few percent went into the fit weighted exactly as heavily
+as the clean early decay, and dragged the slope.
+
+**So the estimator's answer depended on how much of its tail happened to land
+exactly on zero, which is a property of the run length and the population, not of
+the population's effective size.** The fit now runs over a stated window, from the
+start down to a twentieth of the starting diversity.
+
+**The rule: when a fit excludes points by a rule like "not zero", check what the
+surviving points near that boundary are made of.** Excluding the impossible is not
+the same as excluding the uninformative, and the difference is invisible until two
+runs that should agree do not.
+
+**ELI5.** Imagine timing how fast a bath empties by watching the water level. At
+the start the level drops steadily and you can measure it well. At the very end
+there is a puddle sloshing around the plughole, and the level jumps about for
+reasons that have nothing to do with how fast the bath drains.
+
+We measured the whole thing, puddle included, and gave the puddle just as much say
+as the steady part. A big bath has a longer puddle phase than a small one, so the
+two baths gave different answers for the same plughole. Now we stop measuring once
+most of the water is gone, and both baths agree.
+
 ---
 
 ## G. Whether the world can still change

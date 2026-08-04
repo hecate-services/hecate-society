@@ -100,13 +100,36 @@ evolve*.
 | **satisfier classification** | how many satisfiers in use are synergic, and how many are violators |
 | **cultural `Ne`** | how many distinct teachers fill a person's attention |
 
-## `Ne` is the binding constraint on everything ambitious here
+## `Ne` is the binding constraint, and it has been measured
 
-⚠ **Read this before proposing anything large.**
+**Measured 2026-08-04, before the needs, the beliefs and the network were built.
+The floor here is 0.2% to 0.8%, where the predecessor's was 6.72%.** Full result,
+caveats and what is owed in
+[RESEARCH_THE_MEASURED_FLOOR.md](design/RESEARCH_THE_MEASURED_FLOOR.md).
 
-`Ne` was guessed for twenty-two worlds and measured once, at **7.44** against a
-census of 87.95, which put the drift floor at **6.72%** and made nearly every
-mechanism ever priced there invisible.
+| | `Ne` | floor |
+|---|---|---|
+| census 100, uniform copying | ~100 to 117 | **0.43%** |
+| census 100, strong prestige | ~78 to 86 | 0.59% |
+| census 400, uniform | ~268 to 399 | **0.19%** |
+| census 400, strong prestige | ~243 to 330 | 0.21% |
+| **the predecessor, for comparison** | **7.44** | **6.72%** |
+
+**So the charter's ambitions are reachable, and the lever is census rather than
+restraint.** Prestige bias, which was the suspected killer, costs about 20%.
+Population buys three to four times. Four islands of a hundred is what gets the
+floor under 0.25%.
+
+⚠ **The one assumption that would undo it: the census is held flat and nothing
+crashes.** `Ne` over time is a harmonic mean and bottlenecks punish it savagely,
+which is one of the three things that destroyed the predecessor's. That run is
+owed.
+
+⚠ **Read the rest of this section before proposing anything large.**
+
+`Ne` was guessed there for twenty-two worlds and measured once, at **7.44**
+against a census of 87.95, which put the drift floor at **6.72%** and made nearly
+every mechanism ever priced there invisible.
 
 **And the predecessor already ran the experiment that ambition suggests.** `J.1`,
 that brains stay small because the world asks one question, was **refuted** when a

@@ -33,6 +33,7 @@ already.
 | [DESIGN_ECONOMY_AND_SCARCITY.md](DESIGN_ECONOMY_AND_SCARCITY.md) | that attention is what is scarce, that fitness is the count of learners, and that welfare is a third thing held apart from both |
 | [DESIGN_THE_PERSON_IS_A_NETWORK.md](DESIGN_THE_PERSON_IS_A_NETWORK.md) | sensors, unbounded hidden layers, actuators, and that beliefs are data rather than weights |
 | [DESIGN_LIFE_DEATH_AND_VIOLENCE.md](DESIGN_LIFE_DEATH_AND_VIOLENCE.md) | what a life is, why natural mortality is load-bearing, and why conquest needs no mechanism of its own |
+| [RESEARCH_THE_MEASURED_FLOOR.md](RESEARCH_THE_MEASURED_FLOOR.md) | **the drift floor, measured rather than assumed.** Every selectability gate is read against this number |
 
 ## What goes here, and what does not
 
