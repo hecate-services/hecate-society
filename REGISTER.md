@@ -242,6 +242,54 @@ as the steady part. A big bath has a longer puddle phase than a small one, so th
 two baths gave different answers for the same plughole. Now we stop measuring once
 most of the water is gone, and both baths agree.
 
+### `I.26` A catch-all clause turns a wrong pattern into silence
+
+2026-08-05. The first fact this track ever published reached nobody for an hour,
+and every instrument said it was fine.
+
+The reader matched `{:macula_event, ref, topic, payload}`. The SDK sends
+`{:macula_event, ref, topic, payload, meta}`, five elements. A four-element
+pattern does not match, so every fact fell through to the `handle_info(_msg, s)`
+catch-all underneath and was discarded without a log line.
+
+**What made it expensive is that nothing was wrong anywhere else, and everything
+that could be checked, checked out.** The islands reported 226 published and 0
+failed. Both ends agreed on the realm, byte for byte, asserted by asking each
+node to compare its own realm against the expected one. Both agreed on the topic
+string and the namespace. All four islands held healthy links. One island shared
+a station with the reader, so routing was not involved. A sibling page on the
+same site, through the same station, on the same kind of public realm, was
+receiving facts throughout.
+
+Two things found it, and neither was a test.
+
+**A third party.** A forty-line subscriber run from a laptop, on the same realm
+and topic, using the same SDK. It separates "the publisher is silent" from "the
+subscriber is deaf", which no amount of inspecting either end can do, because
+each end can only report what it believes it did.
+
+**And reading the output instead of the summary.** That script printed
+`(other message: macula_event)` fifteen times and then concluded `NOTHING
+ARRIVED`, because it logged only `element(1, Other)` and counted only matched
+messages. The evidence was on the screen, contradicting the verdict directly
+underneath it. A diagnostic whose summary can disagree with its own output is
+worse than no diagnostic, because the summary is what gets believed.
+
+**The rule: a catch-all beside a shape-matching clause makes a wrong shape
+silent, so anything read off a wire gets a test that pushes the real message
+through the real handler.** Not the parsing, not the storing: the delivery.
+
+**ELI5.** Imagine a sorting office with a rule: "a parcel with four labels goes to
+Anna". Parcels start arriving with five labels. They match nobody, so they go
+down the chute marked "anything else", which leads to the bin. No alarm, no
+missing-parcel report, nothing on fire. The sender's receipt says posted, the
+office says it is open and sorting, and Anna's shelf is simply empty.
+
+We checked the sender, the address, the route and the office. All correct. What
+we had not checked was whether the shelf could receive the shape of parcel that
+was actually being sent, and the only way to find out was to post one ourselves
+and watch where it went.
+
 ---
 
 ## G. Whether the world can still change
