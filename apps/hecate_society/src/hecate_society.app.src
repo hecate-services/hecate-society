@@ -1,0 +1,21 @@
+{application, hecate_society, [
+    {description, "One island: a people who hold beliefs, teach them, and decide who may land"},
+    {vsn, "0.1.0"},
+    {registered, [hecate_society_sup]},
+    {mod, {hecate_society_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        crypto,
+        %% ⚠ FOR THE NARRATOR AND NOTHING ELSE. An island with no model to ask
+        %% never opens a socket, but a release that cannot has no way to say so.
+        inets,
+        ssl,
+        %% Mesh SDK, realm identity, capabilities, health.
+        hecate_om
+    ]},
+    {env, []},
+    {modules, []},
+    {licenses, ["Apache-2.0"]},
+    {links, [{"GitHub", "https://github.com/hecate-services/hecate-society"}]}
+]}.

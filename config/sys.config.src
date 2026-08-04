@@ -1,0 +1,44 @@
+%% Substituted by relx at boot; every ${VAR} must resolve or the node will not
+%% start with a malformed term. That is the correct failure: an island with a
+%% half-configured realm would announce itself where nobody can attribute it.
+[
+    {hecate_om, [
+        {service_cert_path, "/etc/hecate/secrets/service-cert.pem"},
+        {station_socket,    "/run/macula/station.sock"},
+        {health_port,       ${HECATE_HEALTH_PORT}},
+        {capability_topic,  <<"_mesh.cap.">>},
+        %% THE REALM IS AN APPLICATION ENV, NOT A SHELL VARIABLE, and this file
+        %% is the only place the two meet. hecate_om_identity:realm() reads
+        %% application:get_env(hecate_om, realm); exporting HECATE_REALM in the
+        %% shell and expecting that to be enough cost a sibling service an hour,
+        %% because nothing translates between the two by itself.
+        {realm,             <<"${HECATE_REALM}">>}
+    ]},
+
+    %% ==========================================================================
+    %% EVOQ'S ADAPTER, WITHOUT WHICH THE NODE DOES NOT BOOT
+    %% ==========================================================================
+    %%
+    %% ⚠ MANDATORY BECAUSE `hecate_society_service' EXPORTS `store_id/0'.
+    %% `hecate_om:boot/1' then starts the store AND a per-store evoq
+    %% subscription, and that subscription reads the global log through evoq,
+    %% which crashes on `{not_configured, event_store_adapter}' if this block is
+    %% absent. hecate_om cannot inject it at runtime: evoq starts as a
+    %% release-boot application before any service's `start/2' runs.
+    %%
+    %% `hecate_om_store' says exactly this in its own module docs, and the
+    %% predecessor still put two of three fleet nodes into a crash loop, because
+    %% the callbacks were added without reading the module that consumes them.
+    {evoq, [
+        {event_store_adapter,    reckon_evoq_adapter},
+        {subscription_adapter,   reckon_evoq_adapter},
+        {snapshot_store_adapter, reckon_evoq_adapter},
+        %% A fallback for dispatch. Nothing here dispatches a command: an island
+        %% is not event-sourced and this store holds a notebook of what each
+        %% population found. It is set because evoq resolves it before knowing
+        %% that.
+        {store_id,               society_store}
+    ]},
+
+    {kernel, [{logger_level, info}]}
+].
