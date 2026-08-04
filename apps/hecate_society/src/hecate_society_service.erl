@@ -77,15 +77,15 @@ capabilities() -> [].
 
 %% THE AUTHORITY THIS SERVICE ASKS THE REALM FOR.
 %%
-%% ⚠ AN EMPTY RESOURCE LIST, MATCHING AN ISLAND THAT PUBLISHES NOTHING. A scope
-%% asked for before it is used is a credential lying around with no owner, and
-%% popping it would grant an attacker the ability to post on this island's behalf
-%% about a thing that does not exist yet. The topics arrive here in the same
-%% commit as the code that publishes them.
+%% ⚠ EXACTLY THE TOPICS THIS ISLAND PUBLISHES ON, AND NO MORE. Read from
+%% `society_facts:topics/0' rather than written out here, because authority in two
+%% places is authority that drifts: a sibling quietly published on two topics its
+%% spec did not name. Popped, an attacker gains precisely the ability to post
+%% vitals for one island, which is the whole point of listing it.
 identity_spec() ->
     #{scope => <<"society">>,
       actions => [<<"publish">>],
-      resources => [],
+      resources => society_facts:topics(),
       ttl_days => 30}.
 
 %% ==========================================================================

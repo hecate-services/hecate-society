@@ -62,14 +62,14 @@ identity_spec_has_the_shape_hecate_om_expects_test() ->
 %% UCAN delegation lands. A sibling drifted exactly this way, quietly publishing
 %% on two topics its spec did not name.
 %%
-%% ⚠ THIS ISLAND PUBLISHES NOTHING, SO IT ASKS FOR NOTHING, and this test is
-%% written to FAIL the day the first publish lands without the spec moving with
-%% it. That is its whole job: an empty list here is a claim about the code, not a
-%% placeholder.
+%% It did FAIL the day the first publish landed, which was its whole job. Now it
+%% compares the two sides: the authority asked for against the topics the island
+%% actually publishes on.
 authority_covers_every_topic_published_and_no_more_test() ->
     #{actions := Actions, resources := Resources} = ?SERVICE:identity_spec(),
     ?assertEqual([<<"publish">>], Actions),
-    ?assertEqual([], Resources).
+    ?assertEqual(lists:sort(society_facts:topics()), lists:sort(Resources)),
+    ?assertNotEqual([], Resources).
 
 %% It speaks and takes no requests, so it promises nothing another service could
 %% call. Accepting a migrant would be a capability, and this fails when that
@@ -81,10 +81,19 @@ announces_nothing_callable_test() ->
 %% mesh is an output, not a dependency. An island that could not boot without a
 %% station would be a people who need a boat in order to exist, and CHARTER.md
 %% makes a partition a geographic barrier rather than an outage.
-supervisor_starts_empty_test() ->
+supervisor_starts_the_island_test() ->
     {ok, Pid} = hecate_society_sup:start_link(),
     ?assert(is_process_alive(Pid)),
-    ?assertEqual([], supervisor:which_children(Pid)),
+    Children = [Id || {Id, _Pid, worker, _M} <- supervisor:which_children(Pid)],
+    ?assert(lists:member(island_server, Children)),
+    %% ⚠ THE ISLAND IS THE ONE CHILD THAT MUST BE THERE; ANYTHING ELSE IS
+    %% CONDITIONAL. Pinning the exact list made the sibling's equivalent test a
+    %% running inventory of optional features, which it failed at three times in
+    %% one day.
+    ?assertEqual([], Children -- [island_server]),
+    #{persons := Persons, tick := Tick} = island_server:snapshot(),
+    ?assert(Persons > 0),
+    ?assert(Tick >= 0),
     unlink(Pid),
     exit(Pid, shutdown).
 
