@@ -1,12 +1,19 @@
-# Structural lint and unit tests. Runs on the glibc erlang image, where macula
-# resolves a prebuilt QUIC NIF and no Rust toolchain is needed. The alpine image
-# build forces a source build instead; see the Containerfile for why.
+# Structural lint and unit tests. Runs on the glibc erlang image. Native code
+# builds while the dependencies compile: the native dependencies hecate_om
+# pulls in (RocksDB through barrel_docdb among them) need cmake, a C++
+# toolchain and the codec dev libs, and macula's NIFs other than QUIC build
+# from source, where macula_cbor_nif's compile hook fails without cargo rather
+# than skip. This job installs both: the same steps as hecate-om's service
+# template. The alpine image build forces a source build of everything; see
+# the Containerfile for why.
 
 name: lint-and-test
 
+# A push on any branch runs these checks, so a CI change can be proven on a
+# branch before it reaches main. This job builds no image: build-push.yml
+# stays on main and tags only.
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -21,5 +28,14 @@ jobs:
       image: erlang:28
     steps:
       - uses: actions/checkout@v4
+      # cmake, build-essential and the codec dev libs: RocksDB's NIF, which
+      # silently disables a codec whose dev lib is missing (see the service
+      # template's lint.yml in hecate-om). curl: for the rustup installer.
+      - run: apt-get update && apt-get install -y --no-install-recommends cmake build-essential libsnappy-dev liblz4-dev libzstd-dev libbz2-dev curl
+      - name: Install Rust toolchain
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+            | sh -s -- -y --default-toolchain stable --profile minimal
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
       - run: rebar3 lint
       - run: rebar3 eunit
