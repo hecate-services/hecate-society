@@ -8,9 +8,8 @@
 %% taking the people on it with it.
 %%
 %% hecate_om is not running in eunit, so `hecate_om_identity:macula_client/0'
-%% EXITS with noproc rather than returning an error. That exit is the thing being
-%% caught, and it is the realistic failure: it is what happens on a live node
-%% while hecate_om is restarting.
+%% finds no mesh pool and returns {error, no_client}. That is the realistic
+%% failure: it is what happens on a live node while hecate_om is restarting.
 -module(society_mesh_tests).
 
 -include_lib("eunit/include/eunit.hrl").
@@ -43,7 +42,7 @@ availability_is_false_rather_than_an_exception_test() ->
 %% which is the exact distinction a supervisor exit destroys.
 the_error_names_what_was_missing_test() ->
     {error, Reason} = society_mesh:publish(<<"society/vitals">>, #{}),
-    ?assertMatch({no_hecate_om, _Class, _Detail}, Reason).
+    ?assertMatch({no_macula_client, {error, no_client}}, Reason).
 
 %%==============================================================================
 %% Which realm the facts go out on

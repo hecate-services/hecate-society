@@ -161,12 +161,14 @@ available() -> element(1, endpoint()) =:= ok.
 %% The pool and the realm both come from hecate_om, which owns the connection and
 %% the identity. This service holds neither.
 %%
-%% WRAPPED, AND THE DEVIATION IS DELIBERATE. Both of those are gen_server calls,
-%% so before hecate_om is up, or while it is restarting, they do not return an
-%% error: they EXIT with noproc. Unwrapped, that exit travels up through the
-%% publish timer and kills the island, which restarts and loses the people who
-%% were living on it. An island must outlive its transport, so the failure
-%% becomes a return value the caller can count.
+%% WRAPPED, AND THE DEVIATION IS DELIBERATE. In the older hecate_om versions
+%% rebar.config still allows, both of those are gen_server calls (newer ones
+%% return {error, no_client} and {error, not_booted} instead), so before
+%% hecate_om is up, or while it is restarting, they do not return an error: they
+%% EXIT with noproc. Unwrapped, that exit travels up through the publish timer
+%% and kills the island, which restarts and loses the people who were living on
+%% it. An island must outlive its transport, so the failure becomes a return
+%% value the caller can count.
 %%
 %% What would be lost without this is precisely the distinction between "the mesh
 %% is not there yet" and "the island crashed", which a supervisor exit collapses
